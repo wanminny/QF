@@ -133,6 +133,7 @@ abstract class Q_Server_Abstract implements Q_Server_Interface
             if ($this->check_server === false) {
                 break;
             }
+//            echo 11;
             unset($servers[$randNum]);
             if (Q_Server_Monitor::run()->check($hitServer["host"], $hitServer["port"])) {
                 break;
