@@ -61,24 +61,4 @@ class Q_Db
         return self::$mysql = new Q_Db_Adapter_Pdo_SqlMap($router, $options);
     }
 
-    /**
-     * @param $router
-     * @param array $options
-     * @param bool $isCacheObj
-     * @return Q_Db_Adapter_Pdo_FastSqlMap
-     * @throws Q_Exception
-     */
-    static function fastPdo($router, array $options = array(), $isCacheObj = true)
-    {
-        if (empty($router)) {
-            throw new Q_Exception('Router 不能为空. ');
-        }
-        if (empty($options['configPath'])) {
-            throw new Q_Exception('SQL Map 配置路径不能为空(SQL Map ConfigPath is null.)');
-        }
-        if (isset(self::$fastPdo[$router]) && $isCacheObj) {
-            return self::$fastPdo[$router];
-        }
-        return self::$fastPdo[$router] = new Q_Db_Adapter_Pdo_FastSqlMap($router, $options);
-    }
 }
